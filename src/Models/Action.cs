@@ -5,6 +5,8 @@ namespace The49.Maui.ContextMenu;
 
 public partial class Action : MenuElement
 {
+    public event EventHandler Clicked = delegate { };
+
     [AutoBindable]
     readonly ICommand command;
 
@@ -28,4 +30,9 @@ public partial class Action : MenuElement
 
     [AutoBindable]
     readonly string subTitle;
+
+    internal void HandleClicked()
+    {
+        Clicked(this, EventArgs.Empty);
+    }
 }

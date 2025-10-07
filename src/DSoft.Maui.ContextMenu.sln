@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSoft.Maui.ContextMenu", "DSoft.Maui.ContextMenu.csproj", "{3E0FCE6B-C19D-42DF-8AEA-1E46A35C18FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".ci", ".ci", "{E986A0B0-8B52-4A67-B060-FAFA8D4E3328}"
+	ProjectSection(SolutionItems) = preProject
+		..\azure-pipelines-mergetest.yml = ..\azure-pipelines-mergetest.yml
+		..\azure-pipelines-release.yml = ..\azure-pipelines-release.yml
+		..\Directory.Build.props = ..\Directory.Build.props
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E0FCE6B-C19D-42DF-8AEA-1E46A35C18FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E0FCE6B-C19D-42DF-8AEA-1E46A35C18FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E0FCE6B-C19D-42DF-8AEA-1E46A35C18FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E0FCE6B-C19D-42DF-8AEA-1E46A35C18FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F777C19D-7D43-4D64-BD17-52741CA078FD}
+	EndGlobalSection
+EndGlobal

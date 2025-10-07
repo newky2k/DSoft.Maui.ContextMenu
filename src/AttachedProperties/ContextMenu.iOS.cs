@@ -148,6 +148,8 @@ public partial class ContextMenu
         var a = UIAction.Create(action.Title, GetActionImage(action), null, delegate
         {
             action.Command?.Execute(action.CommandParameter);
+
+            action.HandleClicked();
         });
 
         if (!string.IsNullOrEmpty(action.SubTitle))

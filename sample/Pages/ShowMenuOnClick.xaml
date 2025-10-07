@@ -26,10 +26,10 @@
                 <the49:ContextMenu.Menu>
                     <DataTemplate>
                         <the49:Menu>
-                            <the49:Action Title="Upload documents" />
+                            <the49:Action Title="Upload documents" Clicked="Action_Clicked_1" />
                             <the49:Action Title="Copy" />
                             <the49:Action Title="Paste" />
-                            <the49:Action Title="Secret" IsVisible="False" />
+                            <the49:Action Title="Secret" Clicked="Action_Clicked_1" />
                         </the49:Menu>
                     </DataTemplate>
                 </the49:ContextMenu.Menu>

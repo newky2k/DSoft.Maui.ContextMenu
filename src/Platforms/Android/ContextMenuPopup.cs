@@ -8,6 +8,7 @@ using AndroidX.RecyclerView.Widget;
 using Java.Lang;
 using Microsoft.Maui.Platform;
 using AView = Android.Views.View;
+using Resource = Microsoft.Maui.Resource;
 
 namespace The49.Maui.ContextMenu;
 
