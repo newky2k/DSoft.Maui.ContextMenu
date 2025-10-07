@@ -16,7 +16,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/The49.Maui.ContextMenu.sln'
+  solution: '**/DSoft.Maui.ContextMenu.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   DotNetVersion: '9.x'
