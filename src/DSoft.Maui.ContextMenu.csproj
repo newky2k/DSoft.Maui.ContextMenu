@@ -19,14 +19,13 @@
 		<Title>.NET Maui ContextMenu</Title>
 		<Description>.NET MAUI library for Android and iOS to open a native context menu on long press.</Description>
 		<PackageIcon>The49.Maui.ContextMenu.Logo.png</PackageIcon>
-		<PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
 		<PackageTags>dotnet; maui; contextmenu; the49</PackageTags>
 		<Version>$(VersionPrefix)$(VersionSuffix)</Version>
-		<Company>The49 Ltd.</Company>
+		<Company>The49 Ltd. DSoft.</Company>
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)'=='Release' ">
-		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
