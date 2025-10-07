@@ -3,8 +3,8 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<PackageProjectUrl>https://github.com/newky2k/DSoft.MAUI.PinchZoomImage</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/newky2k/DSoft.MAUI.PinchZoomImage</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/newky2k/DSoft.Maui.ContextMenu</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/newky2k/DSoft.Maui.ContextMenu</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>Latest</LangVersion>
