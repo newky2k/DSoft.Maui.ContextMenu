@@ -299,6 +299,7 @@ public class MenuItemClickListener : Java.Lang.Object, IMenuItemOnMenuItemClickL
     public bool OnMenuItemClick(Android.Views.IMenuItem item)
     {
         _action.Command?.Execute(_action.CommandParameter);
+        _action.HandleClicked();
 
         return true;
     }
