@@ -1,3 +1,12 @@
+# DSoft.Maui.ContextMenu
+
+This is a reworked version of the orginial the49.Maui.ContextMenu which appears to be out of development.
+
+Changes include
+
+    - Updated to .NET 9.0
+    - Added click event on Action to allow for non-MVVM scenarios
+
 ## What is Maui.ContextMenu?
 
 Maui.ContextMenu is a .NET MAUI library for Android and iOS used to open a native context menu on long press.

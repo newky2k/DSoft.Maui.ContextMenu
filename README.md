@@ -1,4 +1,11 @@
-<img src="./The49.Maui.ContextMenu.TitleLogo.svg?raw=true" height="64" />
+# DSoft.Maui.ContextMenu
+
+This is a reworked version of the orginial the49.Maui.ContextMenu which appears to be out of development.
+
+Changes include
+
+    - Updated to .NET 9.0
+    - Added click event on Action to allow for non-MVVM scenarios
 
 ## What is Maui.ContextMenu?
 
@@ -7,8 +14,6 @@ Maui.ContextMenu is a .NET MAUI library for Android and iOS used to open a nativ
 Android        |  iOS
 :-------------------------:|:-------------------------:
 <img src="screenshots/android.png?raw=true" height="480" />|<img src="screenshots/ios.png?raw=true" height="480" />
-
-
 
 ## Getting Started
 
