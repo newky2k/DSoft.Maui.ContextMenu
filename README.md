@@ -4,8 +4,9 @@ This is a reworked version of the orginial the49.Maui.ContextMenu which appears 
 
 Changes include
 
-    - Updated to .NET 9.0
+    - Updated to .NET 10.0
     - Added click event on Action to allow for non-MVVM scenarios
+    - Fixed issue with Theme changes on android
 
 ## What is Maui.ContextMenu?
 
