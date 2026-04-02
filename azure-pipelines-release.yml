@@ -22,7 +22,7 @@ variables:
   DotNetVersion: '9.x'
   releaseSuffix: ''
 
-name: 1.0.$(date:yyMM).$(date:dd)$(rev:r)
+name: 1.1.$(date:yyMM).$(date:dd)$(rev:r)
 steps:
 
 - task: UseDotNet@2
