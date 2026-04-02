@@ -28,7 +28,6 @@ internal class ContextMenuItemView : LinearLayout
 {
     Context _context;
     TextView _text;
-    Android.Content.Res.ColorStateList _defaultTintList;
     ImageView _image;
     AView _divider;
 
@@ -74,8 +73,6 @@ internal class ContextMenuItemView : LinearLayout
                 Weight = 1
             },
         };
-
-        _defaultTintList = _text.TextColors;
 
         layout.AddView(_text);
 
@@ -128,6 +125,11 @@ internal class ContextMenuItemView : LinearLayout
         _divider.Visibility = enabled ? ViewStates.Visible : ViewStates.Gone;
     }
 
+    bool IsDarkMode()
+    {
+        return ((int)_context.Resources.Configuration.UiMode & (int)Android.Content.Res.UiMode.NightMask) == (int)Android.Content.Res.UiMode.NightYes;
+    }
+
     public void SetTintList(Android.Content.Res.ColorStateList tintList)
     {
         if (tintList != null)
@@ -137,8 +139,10 @@ internal class ContextMenuItemView : LinearLayout
         }
         else
         {
-            _text.SetTextColor(_defaultTintList);
-            _image.ImageTintList = _defaultTintList;
+            var colorRes = IsDarkMode() ? Android.Resource.Color.PrimaryTextDark : Android.Resource.Color.PrimaryTextLight;
+            var defaultColors = _context.Resources.GetColorStateList(colorRes, _context.Theme);
+            _text.SetTextColor(defaultColors);
+            _image.ImageTintList = defaultColors;
         }
     }
 
