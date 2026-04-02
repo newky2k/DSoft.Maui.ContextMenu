@@ -12,7 +12,7 @@ variables:
   solution: '**/DSoft.Maui.ContextMenu.slnx'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  DotNetVersion: '10.x'
+  DotNetVersion: '10.0.105'
 
 steps:
 - task: UseDotNet@2
