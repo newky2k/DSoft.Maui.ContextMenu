@@ -1,8 +1,6 @@
 ﻿using CoreGraphics;
 using Foundation;
 using Microsoft.Maui.Controls.Handlers.Items;
-using Microsoft.Maui.Graphics.Platform;
-using Microsoft.Maui.Platform;
 using UIKit;
 
 namespace The49.Maui.ContextMenu;

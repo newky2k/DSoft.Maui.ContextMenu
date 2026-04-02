@@ -1,6 +1,4 @@
-﻿using Android;
-using Android.Animation;
-using Android.Content;
+﻿using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
@@ -9,7 +7,6 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.Core.View;
 using Kotlin.Jvm.Functions;
-using Microsoft.Maui.Controls.PlatformConfiguration;
 using Microsoft.Maui.Graphics.Platform;
 using Microsoft.Maui.Platform;
 using AView = Android.Views.View;

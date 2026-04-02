@@ -1,7 +1,4 @@
 ﻿using Android.Content.Res;
-using Android.OS;
-using AndroidX.Core.View;
-using AView = Android.Views.View;
 
 namespace The49.Maui.ContextMenu;
 

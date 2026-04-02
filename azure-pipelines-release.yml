@@ -16,11 +16,11 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/DSoft.Maui.ContextMenu.sln'
+  solution: '**/DSoft.Maui.ContextMenu.slnx'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  DotNetVersion: '9.x'
-  releaseSuffix: ''
+  DotNetVersion: '10.x'
+  releaseSuffix: '-prerelease'
 
 name: 1.1.$(date:yyMM).$(date:dd)$(rev:r)
 steps:
@@ -39,7 +39,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: 
-      dotnet workload install android ios maccatalyst tvos macos maui wasm-tools
+      dotnet workload restore
 
 - task: NuGetCommand@2
   displayName: Nuget Restore
