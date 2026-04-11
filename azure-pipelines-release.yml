@@ -20,7 +20,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   DotNetVersion: '10.0.105'
-  releaseSuffix: '-prerelease'
+  releaseSuffix: ''
 
 name: 1.1.$(date:yyMM).$(date:dd)$(rev:r)
 steps:
