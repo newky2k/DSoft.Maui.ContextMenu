@@ -18,7 +18,7 @@
         
 		<Title>.NET Maui ContextMenu</Title>
 		<Description>.NET MAUI library for Android and iOS to open a native context menu on long press.</Description>
-		<PackageIcon>The49.Maui.ContextMenu.Logo.png</PackageIcon>
+		<PackageIcon>DSIcon.png</PackageIcon>
 		<PackageTags>dotnet; maui; contextmenu; the49</PackageTags>
 		<Version>$(VersionPrefix)$(VersionSuffix)</Version>
 		<Company>The49 Ltd. DSoft.</Company>
@@ -33,7 +33,7 @@
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
-		<None Include="..\The49.Maui.ContextMenu.Logo.png">
+		<None Include="..\DSIcon.png">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
@@ -78,7 +78,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.51" />
+	  <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.71" />
 	  <PackageReference Include="M.BindableProperty.Generator" Version="0.11.1" />
 	</ItemGroup>
 
