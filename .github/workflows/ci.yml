@@ -1,0 +1,35 @@
+# Pull request validation: builds Release. Publishes nothing.
+name: CI
+
+on:
+  pull_request:
+    branches: [main, development]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: |
+            10.x
+            11.x
+
+      - name: Install MAUI workloads
+        run: dotnet workload restore DSoft.Maui.ContextMenu.slnx
+
+      - name: Restore
+        run: dotnet restore DSoft.Maui.ContextMenu.slnx /p:Configuration=Release /p:Platform="Any CPU"
+
+      - name: Build
+        run: dotnet build DSoft.Maui.ContextMenu.slnx --configuration Release --no-restore /p:Platform="Any CPU"
