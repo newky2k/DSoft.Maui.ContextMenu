@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-A .NET MAUI library that adds platform-native context menus (long-press or click) to any control on Android and iOS. Forked and updated from **The49.Maui.ContextMenu** to target .NET 9.0 with added click-event support.
+A .NET MAUI library that adds platform-native context menus (long-press or click) to any control on Android and iOS. Forked and updated from **The49.Maui.ContextMenu** to target .NET 10 and .NET 11 with added click-event support.
 
 - **Namespace:** `The49.Maui.ContextMenu` (retained from original library)
 - **XML namespace:** `https://schemas.the49.com/dotnet/2023/maui`
@@ -10,11 +10,18 @@ A .NET MAUI library that adds platform-native context menus (long-press or click
 
 ---
 
+## Branching
+
+- `development` is the working branch. **Every feature and bug fix goes to `development`**: branch from it and open pull requests into it. Never commit or open a pull request directly against `main`.
+- `main` is the release branch. Every push to `main` runs `release.yml`, which publishes the package to nuget.org and creates a GitHub release, so only merge `development` into `main` when a release is intended, and only when asked to release.
+
+---
+
 ## Repository Layout
 
 ```
 DSoft.Maui.ContextMenu/
-├── src/                          # Library source (primary working dir)
+├── DSoft.Maui.ContextMenu/       # Library source (primary working dir)
 │   ├── AttachedProperties/       # Cross-platform + platform-specific attached props
 │   ├── Models/                   # Menu, Action, Group, Preview, MenuElement
 │   ├── Platforms/Android/        # Popup, window, animations, utilities
@@ -23,11 +30,10 @@ DSoft.Maui.ContextMenu/
 │   ├── Extensions/               # ResourcesExtension
 │   ├── Hosting/                  # MauiAppBuilderExtensions (UseContextMenu())
 │   └── DSoft.Maui.ContextMenu.csproj
-├── sample/                       # Manual test app (no automated tests)
+├── DSoft.Maui.ContextMenu.Sample/ # Manual test app (no automated tests)
 ├── Directory.Build.props         # Shared build properties (signing, SourceLink, NuGet)
-├── azure-pipelines-release.yml   # Release CI — triggers on master
-├── azure-pipelines-mergetest.yml # Merge validation CI — manual trigger
-└── DSoft.Maui.ContextMenu.sln
+├── .github/workflows/            # ci.yml and release.yml (GitHub Actions)
+└── DSoft.Maui.ContextMenu.slnx
 ```
 
 ---
@@ -36,9 +42,9 @@ DSoft.Maui.ContextMenu/
 
 | Concern | Detail |
 |---|---|
-| Runtime | .NET 9.0 |
-| Framework | Microsoft.Maui.Controls 9.0.110 |
-| Target platforms | `net9.0-android` (API 33+), `net9.0-ios` (15+), `net9.0-maccatalyst` (15+), `net9.0-windows10.0.19041.0` |
+| Runtime | .NET 10 and .NET 11 |
+| Framework | Microsoft.Maui.Controls 10.0.130 for net10.0, 11.0.10 for net11.0 |
+| Target platforms | `net10.0` and `net11.0` for `-android` (API 33+), `-ios` (16+), `-maccatalyst` (16+) and `-windows10.0.19041.0` |
 | Key dependencies | `CommunityToolkit.Mvvm 8.4.0`, `M.BindableProperty.Generator 0.11.1` |
 | C# version | Latest |
 | Nullable reference types | Enabled |
@@ -87,14 +93,13 @@ MenuElement (abstract, has Title)
 
 ### Local build
 ```bash
-dotnet build src/DSoft.Maui.ContextMenu.csproj -c Release
+dotnet build DSoft.Maui.ContextMenu.slnx -c Release
 ```
-Workloads required: `android ios maccatalyst maui`
+Install the .NET 10 and .NET 11 SDKs, then run `dotnet workload restore DSoft.Maui.ContextMenu.slnx`. `global.json` rolls forward to the latest installed SDK so the .NET 11 targets build.
 
-### CI pipelines (Azure DevOps, `windows-latest`)
-- **Release** (`azure-pipelines-release.yml`): triggers on `master`; versioned NuGet package artifact
-- **Merge test** (`azure-pipelines-mergetest.yml`): manual trigger; Debug build for validation
-- Version scheme: `1.0.{YYMM}.{DD}{rev:r}`
+### CI (GitHub Actions, `.github/workflows/`, `windows-latest`)
+- `ci.yml`: runs on pull requests into `main` and `development`. Restores workloads, then restores and builds Release. Publishes nothing.
+- `release.yml`: runs on every push to `main` (changes only to Markdown or workflow files are skipped; run it by hand to test a workflow change). Builds Release as `1.1.<yyMM>.<run number>` plus `RELEASE_SUFFIX` (empty for a stable version), uploads the package as the `drop` artifact, pushes it to nuget.org with Trusted Publishing (OIDC, `NUGET_USER` secret, `nuget` environment), then tags the commit `v<version>` and creates a GitHub release with the package attached.
 
 ### NuGet packaging
 `GeneratePackageOnBuild` is enabled — a `.nupkg` is produced on every Release build. Package metadata lives in `Directory.Build.props` and the `.csproj`.
@@ -106,7 +111,7 @@ Workloads required: `android ios maccatalyst maui`
 There are **no automated tests**. Validation is manual via the sample app:
 
 ```
-sample/The49.Maui.ContextMenu.Sample/Pages/
+DSoft.Maui.ContextMenu.Sample/Pages/
 ├── Simple.xaml            — basic long-press menu
 ├── CollectionView.xaml    — per-item context menus
 ├── GroupsPage.xaml        — group separators
